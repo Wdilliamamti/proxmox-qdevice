@@ -1,0 +1,19 @@
+---
+# Example compose.yaml for local development
+services:
+  proxmox-qdevice:
+    build: .
+    container_name: proxmox-qdevice-dev
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - qdevice-data:/data
+    environment:
+      - PROXMOX_NODES=${PROXMOX_NODES:-}
+      - PROXMOX_USER=${PROXMOX_USER:-root}
+      - PROXMOX_PASSWORD=${PROXMOX_PASSWORD:-}
+      - QDEVICE_IP=${QDEVICE_IP:-}
+
+volumes:
+  qdevice-data:
+    driver: local

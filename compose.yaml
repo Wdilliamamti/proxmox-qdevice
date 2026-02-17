@@ -1,7 +1,7 @@
 ---
 services:
   proxmox-qdevice:
-    build: .
+    image: ghcr.io/christianlempa/proxmox-qdevice:latest
     container_name: proxmox-qdevice
     restart: unless-stopped
     network_mode: host
